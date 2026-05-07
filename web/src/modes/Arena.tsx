@@ -30,7 +30,6 @@ export default function Arena() {
   const [engineIds, setEngineIds] = useState<string[]>([]);
   const [whiteId, setWhiteId] = useState("v1_minimax");
   const [blackId, setBlackId] = useState("v0_random");
-  const [thinkMs, setThinkMs] = useState(150);
   const [games, setGames] = useState(10);
   const [running, setRunning] = useState(false);
 
@@ -72,7 +71,7 @@ export default function Arena() {
       const swap = i % 2 === 1;
       const wId = swap ? blackId : whiteId;
       const bId = swap ? whiteId : blackId;
-      const summary = await playOne(w, b, wId, bId, thinkMs);
+      const summary = await playOne(w, b, wId, bId);
 
       const outcomeForWhite: EloOutcome =
         summary.result === "1-0"
@@ -107,7 +106,6 @@ export default function Arena() {
     b: EngineClient,
     wId: string,
     bId: string,
-    timeMs: number,
   ): Promise<GameSummary> {
     await w.newSession(wId);
     await b.newSession(bId);
@@ -124,7 +122,7 @@ export default function Arena() {
       const mover = stm === "white" ? w : b;
       const other = stm === "white" ? b : w;
 
-      const res = await mover.search({ timeMs });
+      const res = await mover.search({});
       if (!res.bestMove) break;
 
       await mover.makeMove(res.bestMove);
@@ -187,21 +185,6 @@ export default function Arena() {
               options={engineIds.length ? engineIds : [blackId]}
               disabled={running}
             />
-            <label className="flex flex-col gap-1 text-xs uppercase tracking-wide text-ink-muted">
-              Think time / move
-              <select
-                value={thinkMs}
-                onChange={(e) => setThinkMs(Number(e.target.value))}
-                disabled={running}
-                className="rounded-md border border-edge bg-bg-elevated px-2 py-1.5 text-sm font-mono text-ink focus:border-accent focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                {[50, 100, 150, 300, 600].map((ms) => (
-                  <option key={ms} value={ms}>
-                    {ms} ms
-                  </option>
-                ))}
-              </select>
-            </label>
             <label className="flex flex-col gap-1 text-xs uppercase tracking-wide text-ink-muted">
               Games
               <select

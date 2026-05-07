@@ -31,7 +31,6 @@ export default function Analysis() {
   const [engineIds, setEngineIds] = useState<string[]>([]);
   const [engineId, setEngineId] = useState("v1_minimax");
   const [fen, setFen] = useState(STARTPOS);
-  const [thinkMs, setThinkMs] = useState(1000);
   const [running, setRunning] = useState(false);
   const [result, setResult] = useState<SearchResultMsg | null>(null);
 
@@ -60,7 +59,7 @@ export default function Analysis() {
     setResult(null);
     try {
       await c.setFen(fen);
-      const res = await c.search({ timeMs: thinkMs });
+      const res = await c.search({});
       setResult(res);
     } catch (e) {
       console.error(e);
@@ -107,29 +106,12 @@ export default function Analysis() {
         </div>
 
         <div className="panel p-4">
-          <div className="grid grid-cols-2 gap-3">
-            <EngineSelect
-              value={engineId}
-              onChange={setEngineId}
-              options={engineIds.length ? engineIds : [engineId]}
-              disabled={running}
-            />
-            <label className="flex flex-col gap-1 text-xs uppercase tracking-wide text-ink-muted">
-              Think time
-              <select
-                value={thinkMs}
-                onChange={(e) => setThinkMs(Number(e.target.value))}
-                disabled={running}
-                className="rounded-md border border-edge bg-bg-elevated px-2 py-1.5 text-sm font-mono text-ink focus:border-accent focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                {[500, 1000, 2000, 5000].map((ms) => (
-                  <option key={ms} value={ms}>
-                    {ms} ms
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+          <EngineSelect
+            value={engineId}
+            onChange={setEngineId}
+            options={engineIds.length ? engineIds : [engineId]}
+            disabled={running}
+          />
           <button
             className="btn btn-primary mt-3"
             onClick={analyze}

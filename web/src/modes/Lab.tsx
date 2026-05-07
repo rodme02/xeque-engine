@@ -14,7 +14,6 @@ export default function Lab() {
   const [running, setRunning] = useState(false);
   const [trace, setTrace] = useState<SearchInfoMsg[]>([]);
   const [last, setLast] = useState<SearchInfoMsg | null>(null);
-  const [thinkMs, setThinkMs] = useState(2000);
 
   useEffect(() => {
     const c = new EngineClient();
@@ -42,7 +41,7 @@ export default function Lab() {
     setLast(null);
     try {
       await c.setFen(fen);
-      const res = await c.search({ timeMs: thinkMs }, (info) => {
+      const res = await c.search({}, (info) => {
         setTrace((t) => [...t, info]);
         setLast(info);
       });
@@ -89,29 +88,12 @@ export default function Lab() {
 
       <aside className="flex flex-col gap-4">
         <div className="panel p-4">
-          <div className="grid grid-cols-2 gap-3">
-            <EngineSelect
-              value={engineId}
-              onChange={setEngineId}
-              options={engineIds.length ? engineIds : [engineId]}
-              disabled={running}
-            />
-            <label className="flex flex-col gap-1 text-xs uppercase tracking-wide text-ink-muted">
-              Think time
-              <select
-                value={thinkMs}
-                onChange={(e) => setThinkMs(Number(e.target.value))}
-                disabled={running}
-                className="rounded-md border border-edge bg-bg-elevated px-2 py-1.5 text-sm font-mono text-ink focus:border-accent focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                {[500, 1000, 2000, 4000, 8000].map((ms) => (
-                  <option key={ms} value={ms}>
-                    {ms} ms
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+          <EngineSelect
+            value={engineId}
+            onChange={setEngineId}
+            options={engineIds.length ? engineIds : [engineId]}
+            disabled={running}
+          />
           <div className="mt-3 flex gap-2">
             <button
               className="btn btn-primary"

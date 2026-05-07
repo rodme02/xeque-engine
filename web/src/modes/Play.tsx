@@ -33,7 +33,6 @@ export default function Play() {
   const [engineIds, setEngineIds] = useState<string[]>([]);
   const [engineId, setEngineId] = useState("v1_minimax");
   const [playerColor, setPlayerColor] = useState<"white" | "black">("white");
-  const [thinkMs, setThinkMs] = useState(800);
   const [fen, setFen] = useState(STARTPOS);
   const [history, setHistory] = useState<Played[]>([]);
   const [thinking, setThinking] = useState(false);
@@ -134,7 +133,7 @@ export default function Play() {
     if (await c.isGameOver()) return;
     setThinking(true);
     try {
-      const result = await c.search({ timeMs: thinkMs });
+      const result = await c.search({});
       if (result.bestMove) {
         const uci = result.bestMove;
         await c.makeMove(uci);
@@ -191,30 +190,13 @@ export default function Play() {
       </div>
       <aside className="flex flex-col gap-4">
         <div className="panel p-4">
-          <div className="grid grid-cols-2 gap-3">
-            <EngineSelect
-              label="Opponent"
-              value={engineId}
-              onChange={setEngineId}
-              options={engineIds.length ? engineIds : [engineId]}
-              disabled={thinking}
-            />
-            <label className="flex flex-col gap-1 text-xs uppercase tracking-wide text-ink-muted">
-              Think time
-              <select
-                value={thinkMs}
-                onChange={(e) => setThinkMs(Number(e.target.value))}
-                disabled={thinking}
-                className="rounded-md border border-edge bg-bg-elevated px-2 py-1.5 text-sm font-mono text-ink focus:border-accent focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                {[200, 400, 800, 1500, 3000].map((ms) => (
-                  <option key={ms} value={ms}>
-                    {ms} ms
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+          <EngineSelect
+            label="Opponent"
+            value={engineId}
+            onChange={setEngineId}
+            options={engineIds.length ? engineIds : [engineId]}
+            disabled={thinking}
+          />
           <div className="mt-3 flex flex-wrap gap-2">
             <button className="btn btn-primary" onClick={newGame}>
               New game
