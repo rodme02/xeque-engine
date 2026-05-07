@@ -4,6 +4,13 @@ A growing collection of chess engines, written in **Rust**, playable in
 the browser via **WebAssembly** and via the **UCI** protocol from any
 chess GUI.
 
+> [**Live demo →**](https://rodme02.github.io/xeque-engine/)
+
+[![ci](https://github.com/rodme02/xeque-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/rodme02/xeque-engine/actions/workflows/ci.yml)
+[![deploy](https://github.com/rodme02/xeque-engine/actions/workflows/deploy.yml/badge.svg)](https://github.com/rodme02/xeque-engine/actions/workflows/deploy.yml)
+[![rust](https://img.shields.io/badge/rust-stable-orange)](rust-toolchain.toml)
+[![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 > *Xeque* is Portuguese for *check*.
 
 ## What's here

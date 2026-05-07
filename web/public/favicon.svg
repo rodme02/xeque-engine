@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="#0d1117"/>
+  <rect x="6" y="6" width="52" height="52" rx="8" fill="none" stroke="#30363d" stroke-width="1"/>
+  <!-- Stylised knight, in the project's accent purple. -->
+  <path d="M22 50 L42 50 L44 46 L40 38 C38 34 36 30 34 26 C36 24 40 22 42 18 C40 18 36 18 32 22 C30 18 28 16 24 14 C24 18 24 22 26 26 C24 28 22 32 22 36 C22 40 22 44 22 46 Z" fill="#7c5cff"/>
+  <circle cx="29" cy="22" r="1.5" fill="#0d1117"/>
+</svg>
