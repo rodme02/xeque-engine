@@ -1,0 +1,22 @@
+[package]
+name = "xeque-bench"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Benchmarks for the xeque engine collection (criterion)."
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dev-dependencies]
+xeque-core = { workspace = true }
+xeque-engines = { workspace = true }
+cozy-chess = { workspace = true }
+criterion = "0.5"
+
+[[bench]]
+name = "nps"
+harness = false

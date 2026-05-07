@@ -1,0 +1,21 @@
+# Rust
+target/
+**/*.rs.bk
+Cargo.lock.bak
+
+# wasm-pack output (generated; rebuilt on every CI run)
+web/wasm/
+
+# Frontend
+web/node_modules/
+web/dist/
+web/dist-node-ts/
+web/.vite/
+web/*.log
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.tsbuildinfo

@@ -1,0 +1,17 @@
+[package]
+name = "xeque-uci"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "UCI protocol binary for the xeque engine collection."
+
+[[bin]]
+name = "xeque-uci"
+path = "src/main.rs"
+
+[dependencies]
+xeque-core = { workspace = true }
+xeque-engines = { workspace = true }
+cozy-chess = { workspace = true }
