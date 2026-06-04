@@ -29,7 +29,7 @@ Python, multi-language, or educational rewrites here.
 Cargo.toml                workspace
 crates/
   xeque-core              Board (cozy-chess wrap), Engine trait, types
-  xeque-engines           v0_random, v1_minimax, registry, future engines
+  xeque-engines           v0_random, v1_minimax, v2_alphabeta, registry, future engines
   xeque-uci               UCI binary
   xeque-wasm              wasm-bindgen Session
   xeque-bench             criterion benchmarks
@@ -66,9 +66,9 @@ docs/                     ARCHITECTURE.md, ENGINES.md, REFERENCES.md
 
 - One new engine = one new file under `crates/xeque-engines/src/`. The
   registry in `lib.rs` gets one new row. Other crates do not change.
-- **Never edit `v0_random` or `v1_minimax` in place** to "improve" them.
-  They are historical artifacts that the arena / leaderboard compares
-  against.
+- **Never edit `v0_random`, `v1_minimax`, or `v2_alphabeta` in place** to
+  "improve" them. They are historical artifacts that the arena /
+  leaderboard compares against.
 - Each new engine ships with:
   - A perft test if movegen was touched (rare — cozy-chess covers it).
   - An arena-mode Elo measurement vs the previous version (≥200 games at
@@ -77,7 +77,7 @@ docs/                     ARCHITECTURE.md, ENGINES.md, REFERENCES.md
   - A `chessprogramming.org` link in the commit message for any known
     technique.
 
-See [`docs/ENGINES.md`](docs/ENGINES.md) for the backlog (v2 → v7).
+See [`docs/ENGINES.md`](docs/ENGINES.md) for the backlog (v3 → v7).
 
 ## Testing philosophy
 

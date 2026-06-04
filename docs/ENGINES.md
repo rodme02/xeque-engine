@@ -13,6 +13,10 @@ in its own PR with:
 
 ## Shipped
 
+> **v0.1.0** ships `v0_random` + `v1_minimax` + `v2_alphabeta`. See
+> [`CHANGELOG.md`](../CHANGELOG.md). The backlog below (v3 → v7) is future
+> work; `v3_iterative_ordering` is next.
+
 ### `v0_random`
 
 Picks a uniformly random legal move. Baseline opponent and the smoke test

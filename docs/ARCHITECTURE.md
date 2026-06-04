@@ -22,7 +22,8 @@ Both artifacts consume **the same engine code** through one trait:
 │  crates/xeque-engines    │     │  tests/perft  (chessprog. wiki)│
 │    v0_random             │     └──────────────────────────────┘
 │    v1_minimax            │
-│    (backlog: v2..v7)     │
+│    v2_alphabeta          │
+│    (backlog: v3..v7)     │
 └──────┬─────────────┬─────┘
        │             │
        ▼             ▼
@@ -72,9 +73,10 @@ calls it.
 - `xeque-bench` = criterion benchmarks, isolated so its (heavy) dev-deps
   don't leak into the main build graph.
 
-When `xeque-engines/v2_alphabeta` lands, **none of the other crates
-change** — the registry in `xeque-engines/src/lib.rs` adds one row and
-the UI gets a new option in every dropdown for free.
+When the next engine (`xeque-engines/v3_iterative_ordering`) lands,
+**none of the other crates change** — the registry in
+`xeque-engines/src/lib.rs` adds one row and the UI gets a new option in
+every dropdown for free. That's exactly how `v2_alphabeta` shipped.
 
 ## Frontend ↔ engine: the Web Worker contract
 
