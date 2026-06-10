@@ -79,8 +79,9 @@ a fresh clone before tagging a release.
       edited in place — they are frozen historical artifacts.
 - [ ] A new engine is one new file + one new registry row in
       `crates/xeque-engines/src/lib.rs`; no other crate changes.
-- [ ] Docs agree on the shipped set (README, `docs/ENGINES.md`,
-      `docs/ARCHITECTURE.md`, `CLAUDE.md`, `CHANGELOG.md`).
+- [ ] Docs agree on the shipped set and the next step (README,
+      `docs/ROADMAP.md`, `docs/ENGINES.md`, `docs/ARCHITECTURE.md`,
+      `CLAUDE.md`, `CHANGELOG.md`).
 
 ### Release
 - [ ] `CHANGELOG.md` has an entry for the version being shipped.
