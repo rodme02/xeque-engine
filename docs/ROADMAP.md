@@ -32,8 +32,10 @@ Done when:
 
 - [ ] One new file + one registry row; no other crate changes; frozen
       engines untouched (ship via `/new-engine`).
-- [ ] ≥200 arena games vs `v2_alphabeta` at fixed time control show a
-      positive Elo gain, recorded in `ENGINES.md`.
+- [ ] ≥200 arena games vs `v2_alphabeta` at a fixed per-move limit
+      (v2 at its default depth — record the exact settings) show a
+      positive Elo gain, recorded on a **Measured:** line in
+      `ENGINES.md`.
 - [ ] The Think Time control is back in the web UI and functional.
 - [ ] `ENGINES.md`, this file, and `CHANGELOG.md` updated; CI green.
 
@@ -48,7 +50,8 @@ Done when:
 
 - [ ] A script or documented command in the repo runs the match
       end-to-end on a fresh clone.
-- [ ] The `/new-engine` skill references it as the promotion gate.
+- [ ] The `/new-engine` skill references it as the external
+      sign-off gate.
 
 ### 3. Hero media in the README
 
@@ -61,12 +64,13 @@ Done when:
 - [ ] `docs/media/hero.png` (or `.gif`) committed; README hero line
       uncommented and the "pending" note removed.
 
-### 4–7. Engine backlog: `v4_quiescence` → `v5_tt` → `v6_tuned_eval` → `v7_nnue` / `v7_mcts`
+### Then: engine backlog — `v4_quiescence` → `v5_tt` → `v6_tuned_eval` → `v7_nnue` / `v7_mcts`
 
 One technique per release, each shipped via the `/new-engine` workflow
 with a ≥200-game measurement vs the previous version (plus the SPRT
 harness once step 2 ships). Details per version in
-[ENGINES.md](ENGINES.md#backlog).
+[ENGINES.md](ENGINES.md#backlog). Each is promoted to a numbered step
+with its own "Done when" list when it reaches the front of the queue.
 
 ## Maintenance
 

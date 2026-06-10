@@ -10,11 +10,15 @@ engine in place** — the progression itself is the portfolio. Each new
 version ships via the `/new-engine` workflow
 (`.claude/skills/new-engine/`) with:
 
-- a perft test (if movegen was touched, which is never — cozy-chess does
-  it for now);
+- a perft test (only if movegen was touched — cozy-chess covers it
+  today);
 - an arena-mode Elo measurement vs the previous version (≥200 games at
   fixed time control);
 - a chessprogramming.org wiki link in the commit message.
+
+Each shipped entry below ends with a **Measured:** line recording that
+Elo result (settings included). `v0_random`–`v2_alphabeta` predate this
+gate and have none.
 
 ## Shipped
 
