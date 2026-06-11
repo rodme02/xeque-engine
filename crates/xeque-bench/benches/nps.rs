@@ -1,8 +1,10 @@
 //! Per-engine NPS benchmarks: a search from the start position at each
 //! engine's default depth. Depth-bounded (not wall-clock), and node
 //! counts are fixed per engine for the searching engines, so criterion's
-//! throughput line (elem/s) reads directly as NPS. Iterates the
-//! registry, so new engines are benched automatically.
+//! throughput line (elem/s) reads directly as NPS. (v0_random's line
+//! measures construction + RNG seeding, not search — it picks one of
+//! 20 moves.) Iterates the registry, so new engines are benched
+//! automatically.
 
 use criterion::{criterion_group, criterion_main, Criterion, Throughput};
 use xeque_core::{Board, SearchLimits};
