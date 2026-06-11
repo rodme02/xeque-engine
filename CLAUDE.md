@@ -36,10 +36,14 @@ crates/
   xeque-core/tests/perft  canonical perft regression
 web/                      Vite + React + TS + Tailwind + chessground
   src/engine/             worker.ts, api.ts, elo.ts
-  src/components/         Board, EngineSelect
+  src/components/         Board, EngineSelect, ErrorBoundary
   src/modes/              Play, Lab, Analysis, Arena, Perft
 .github/workflows/        ci.yml, deploy.yml
-docs/                     ARCHITECTURE.md, ENGINES.md, REFERENCES.md
+.claude/skills/           new-engine — the ship-an-engine workflow
+docs/                     ROADMAP.md, ARCHITECTURE.md, ENGINES.md, REFERENCES.md
+  superpowers/            plan + spec documents from planning sessions
+CHANGELOG.md              release history (Keep a Changelog format)
+PORTFOLIO_STANDARD.md     definition of "portfolio-ready" for this repo
 ```
 
 ## Conventions
@@ -77,7 +81,11 @@ docs/                     ARCHITECTURE.md, ENGINES.md, REFERENCES.md
   - A `chessprogramming.org` link in the commit message for any known
     technique.
 
-See [`docs/ENGINES.md`](docs/ENGINES.md) for the backlog (v3 → v7).
+See [`docs/ROADMAP.md`](docs/ROADMAP.md) for status and the ordered
+next steps, and [`docs/ENGINES.md`](docs/ENGINES.md) for per-version
+technique write-ups. Use the `/new-engine` skill
+(`.claude/skills/new-engine/`) when shipping a new engine — it encodes
+this whole workflow.
 
 ## Testing philosophy
 
@@ -102,7 +110,8 @@ See [`docs/ENGINES.md`](docs/ENGINES.md) for the backlog (v3 → v7).
 - Run `cargo fmt && cargo clippy && cargo test` before commits.
 - Reference chessprogramming.org pages in commit messages for known
   techniques.
-- Update `docs/ENGINES.md` whenever a new engine ships.
+- Update `docs/ROADMAP.md`, `docs/ENGINES.md`, and `CHANGELOG.md`
+  whenever a new engine ships (the `/new-engine` skill walks this).
 
 **Don't:**
 - Don't propose Python, Pygame, or non-Rust engine components. The
