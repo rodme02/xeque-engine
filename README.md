@@ -53,10 +53,12 @@ The progression of engines is the portfolio: each shipped version
 trait. Old engines are never edited — visitors can pick any version and
 feel the technique that was added.
 
-See [`docs/ENGINES.md`](docs/ENGINES.md) for the backlog,
-[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for how the workspace fits
-together, and [`docs/REFERENCES.md`](docs/REFERENCES.md) for the
-chessprogramming.org / Rust / wasm-bindgen sources we follow.
+See [`docs/ROADMAP.md`](docs/ROADMAP.md) for where the project is and
+what's next, [`docs/ENGINES.md`](docs/ENGINES.md) for per-version
+technique write-ups, [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for
+how the workspace fits together, and
+[`docs/REFERENCES.md`](docs/REFERENCES.md) for the chessprogramming.org
+/ Rust / wasm-bindgen sources we follow.
 
 ## Scope & roadmap
 
@@ -65,10 +67,11 @@ chessprogramming.org / Rust / wasm-bindgen sources we follow.
 the five-mode React UI, the perft regression suite, and CI + GitHub Pages
 deploy. Nothing here is a stub: every mode and every engine works today.
 
-Future engines `v3_iterative_ordering` through `v7_nnue` / `v7_mcts` are
-the backlog, tracked in [`docs/ENGINES.md`](docs/ENGINES.md). Each lands
-as a new file behind the same `Engine` trait without touching the shipped
-ones. See [`CHANGELOG.md`](CHANGELOG.md) for the per-release history.
+What's next — `v3_iterative_ordering` through `v7_nnue` / `v7_mcts`,
+the SPRT test harness, and more — is tracked with acceptance criteria
+in [`docs/ROADMAP.md`](docs/ROADMAP.md). Each engine lands as a new
+file behind the same `Engine` trait without touching the shipped ones.
+See [`CHANGELOG.md`](CHANGELOG.md) for the per-release history.
 
 ## Quick start
 
@@ -124,6 +127,7 @@ web/                        Vite + React + TS + Tailwind + chessground
   deploy.yml                wasm + frontend → GitHub Pages
 CHANGELOG.md                per-release history (Keep a Changelog)
 docs/
+  ROADMAP.md                where we are + next steps (source of truth)
   ARCHITECTURE.md
   ENGINES.md
   REFERENCES.md

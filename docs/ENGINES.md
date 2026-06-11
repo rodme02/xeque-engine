@@ -1,21 +1,26 @@
 # Engine progression
 
-The collection grows one technique at a time. Each version is a separate
-file under `crates/xeque-engines/src/`. **Never edit an old engine in
-place** — the progression itself is the portfolio. Each new version ships
-in its own PR with:
+Per-version technique write-ups for the collection — shipped and
+backlog. **Status and ordering live in [`ROADMAP.md`](ROADMAP.md)**;
+this file explains what each version does and why it matters.
 
-- a perft test (if movegen was touched, which is never — cozy-chess does
-  it for now);
+The collection grows one technique at a time. Each version is a
+separate file under `crates/xeque-engines/src/`. **Never edit an old
+engine in place** — the progression itself is the portfolio. Each new
+version ships via the `/new-engine` workflow
+(`.claude/skills/new-engine/`) with:
+
+- a perft test (only if movegen was touched — cozy-chess covers it
+  today);
 - an arena-mode Elo measurement vs the previous version (≥200 games at
-  fixed time control);
+  a fixed per-move limit);
 - a chessprogramming.org wiki link in the commit message.
 
-## Shipped
+Each shipped entry below ends with a **Measured:** line recording that
+Elo result (settings included). `v0_random`–`v2_alphabeta` predate this
+gate and have none.
 
-> **v0.1.0** ships `v0_random` + `v1_minimax` + `v2_alphabeta`. See
-> [`CHANGELOG.md`](../CHANGELOG.md). The backlog below (v3 → v7) is future
-> work; `v3_iterative_ordering` is next.
+## Shipped
 
 ### `v0_random`
 
@@ -43,7 +48,7 @@ extra ply translates directly into a large Elo jump.
 
 - [Alpha-Beta](https://www.chessprogramming.org/Alpha-Beta)
 
-## Backlog (in order)
+## Backlog
 
 ### `v3_iterative_ordering`
 Iterative deepening + move ordering: PV-move first, MVV-LVA for captures,
