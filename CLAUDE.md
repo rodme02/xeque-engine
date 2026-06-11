@@ -76,7 +76,7 @@ PORTFOLIO_STANDARD.md     definition of "portfolio-ready" for this repo
 - Each new engine ships with:
   - A perft test if movegen was touched (rare — cozy-chess covers it).
   - An arena-mode Elo measurement vs the previous version (≥200 games at
-    fixed time control). For external sign-off, run `cutechess-cli` +
+    a fixed per-move limit). For external sign-off, run `cutechess-cli` +
     SPRT against a reference build.
   - A `chessprogramming.org` link in the commit message for any known
     technique.

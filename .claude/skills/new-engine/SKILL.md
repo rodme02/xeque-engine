@@ -1,6 +1,6 @@
 ---
 name: new-engine
-description: Use when shipping a new engine version (v3, v4, …) to the xeque-engine collection — walks the full loop: one new file + one registry row, tests, an Elo measurement vs the previous version, and doc updates. Never edits shipped engines.
+description: "Use when shipping a new engine version (v3, v4, …) to the xeque-engine collection — walks the full loop: one new file + one registry row, tests, an Elo measurement vs the previous version, and doc updates. Never edits shipped engines."
 ---
 
 # Ship a new engine version

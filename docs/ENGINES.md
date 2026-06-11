@@ -13,7 +13,7 @@ version ships via the `/new-engine` workflow
 - a perft test (only if movegen was touched — cozy-chess covers it
   today);
 - an arena-mode Elo measurement vs the previous version (≥200 games at
-  fixed time control);
+  a fixed per-move limit);
 - a chessprogramming.org wiki link in the commit message.
 
 Each shipped entry below ends with a **Measured:** line recording that
